@@ -1,7 +1,7 @@
 {
   "name": "nestjs-complete-module",
   "version": "0.0.0",
-  "description": "A blank schematics",
+  "description": "A schematic to generate a NestJS module with a service, controller, TypeORM model.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/*_spec.js"
