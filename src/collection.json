@@ -1,0 +1,9 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "nestjs-complete-module": {
+      "description": "A blank schematic.",
+      "factory": "./nestjs-complete-module/index#nestjsCompleteModule"
+    }
+  }
+}
