@@ -1,28 +1,80 @@
-# Getting Started With Schematics
+# NestJS Complete Module Schematic
 
-This repository is a basic Schematic implementation that serves as a starting point to create and publish Schematics to NPM.
+I could not find a schematic that created a CRUD module in NestJS. So I build this.
 
-### Testing
+The file structure looks like :
 
-To test locally, install `@angular-devkit/schematics-cli` globally and use the `schematics` command line tool. That tool acts the same as the `generate` command of the Angular CLI, but also has a debug mode.
+```typescript
+app/
+├─ controller/
+│  ├─ <g>.controller.spec.ts
+│  ├─ <g>.controller.ts
+├─ models/
+│  ├─ <g>.entity.ts
+│  ├─ <g>.model.ts
+├─ service/
+│  ├─ <g>.service.spec.ts
+│  ├─ <g>.service.ts
+├─ <g>.module.ts
 
-Check the documentation with
-```bash
-schematics --help
 ```
 
-### Unit Testing
+# Schema Aims
 
-`npm run test` will run the unit tests, using Jasmine as a runner and test framework.
-
-### Publishing
-
-To publish, simply do:
-
-```bash
-npm run build
-npm publish
 ```
-
-That's it!
- 
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "nestjs-complete-module",
+  "title": "Generates NestJS Module",
+  "description": "A schematic to generate a NestJS module with a service, controller, TypeORM model.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the module.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the name of the module?"
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the module.",
+      "visible": false
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "module": {
+      "type": "string",
+      "description": "Allows specification of the declaring module.",
+      "alias": "m"
+    },
+    "flat": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag to indicate if a dir is created."
+    },
+    "spec": {
+      "type": "boolean",
+      "default": true,
+      "description": "Specifies if a spec file is generated."
+    },
+    "lintFix": {
+      "type": "boolean",
+      "default": false,
+      "description": "Specifies whether to apply lint fixes after generating the model."
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "name"
+  ]
+}
+```

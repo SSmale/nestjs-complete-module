@@ -3,7 +3,8 @@
   "schematics": {
     "nestjs-complete-module": {
       "description": "A schematic to generate a NestJS module with a service, controller, TypeORM model.",
-      "factory": "./nestjs-complete-module/index#nestjsCompleteModule"
+      "factory": "./nestjs-complete-module/index#nestjsCompleteModule",
+      "schema": "./nestjs-complete-module/schema.json"
     }
   }
 }

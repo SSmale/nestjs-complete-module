@@ -1,25 +1,37 @@
 {
-  "name": "nestjs-complete-module",
-  "version": "0.0.0",
+  "name": "@iamsimonsmale/nestjs-complete-module",
+  "version": "1.0.0",
   "description": "A schematic to generate a NestJS module with a service, controller, TypeORM model.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "test": "npm run build && jasmine src/**/*_spec.js",
+    "generateTDS": "cd src/nestjs-complete-module && npx -p dtsgenerator dtsgen schema.json -o schema.d.ts"
   },
   "keywords": [
     "schematics"
   ],
-  "author": "",
+  "author": "Simon Smale",
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
     "@angular-devkit/core": "^11.0.2",
     "@angular-devkit/schematics": "^11.0.2",
+    "@schematics/angular": "^11.0.2",
     "typescript": "~4.0.2"
   },
   "devDependencies": {
     "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "jasmine": "^3.5.0"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SSmale/nestjs-complete-module.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SSmale/nestjs-complete-module/issues"
+  },
+  "homepage": "https://github.com/SSmale/nestjs-complete-module#readme"
 }
