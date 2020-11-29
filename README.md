@@ -1,25 +1,68 @@
-# NestJS Complete Module Schematic
+![nestjs-complete-module](https://socialify.git.ci/SSmale/nestjs-complete-module/image?description=1&language=1&owner=1&pattern=Signal&theme=Dark)
 
 I could not find a schematic that created a CRUD module in NestJS. So I build this.
+
+# Installation
+
+`npm i -D @iamsimonsmale/nestjs-complete-module`
+
+# File Structure
 
 The file structure looks like :
 
 ```typescript
 app/
 ├─ controller/
-│  ├─ <g>.controller.spec.ts
-│  ├─ <g>.controller.ts
+│  ├─ <name>.controller.spec.ts
+│  ├─ <name>.controller.ts
 ├─ models/
-│  ├─ <g>.entity.ts
-│  ├─ <g>.model.ts
+│  ├─ <name>.entity.ts
+│  ├─ <name>.model.ts
 ├─ service/
-│  ├─ <g>.service.spec.ts
-│  ├─ <g>.service.ts
-├─ <g>.module.ts
+│  ├─ <name>.service.spec.ts
+│  ├─ <name>.service.ts
+├─ <name>.module.ts
 
 ```
 
-# Schema Aims
+# Schema
+
+## Currently Implemented
+
+```
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "nestjs-complete-module",
+  "title": "Generates NestJS Module",
+  "description": "A schematic to generate a NestJS module with a service, controller, TypeORM model.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the module.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the name of the module?"
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "name"
+  ]
+}
+```
+
+
+## Aim
 
 ```
 {
